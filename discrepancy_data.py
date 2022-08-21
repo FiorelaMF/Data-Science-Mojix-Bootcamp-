@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 # ----------- DATA ANALYSIS ----------------
 df_expected = pd.read_csv("https://storage.googleapis.com/mojix-devops-wildfire-bucket/analytics/bootcamp_2_0/Bootcamp_DataAnalysis_Expected.csv", encoding="latin-1", dtype=str)
@@ -45,10 +47,20 @@ st.title('Discrepancy Data - Analysis')
 st.dataframe(df_result)
 
 # Cake Chart SOH
+st.write('Retail_SOHQTY')
+st.bar_chart(df_result['Retail_SOHQTY'])
 
 # Bar Chart CC
+st.write('Retail_CCQTY')
+fig1, ax1 = plt.subplots()
+ax1.pie(df_result['Retail_CCQTY'], autopct='%1.1f%%', startangle=90)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+st.pyplot(fig1)
 
 # Graf Diff - unders
+st.write('Stadistic metrics')
+st.dataframe(df_discrepancy.describe())
 
 
 
