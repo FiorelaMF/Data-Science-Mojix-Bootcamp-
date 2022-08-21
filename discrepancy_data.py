@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 
 # ----------- DATA ANALYSIS ----------------
@@ -52,11 +52,12 @@ st.bar_chart(df_result['Retail_SOHQTY'])
 
 # Bar Chart CC
 st.write('Retail_CCQTY')
-fig1, ax1 = plt.subplots()
-ax1.pie(df_result['Retail_CCQTY'], autopct='%1.1f%%', startangle=90)
-ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+st.line_chart(df_result['Retail_CCQTY'])
+#fig1, ax1 = plt.subplots()
+#ax1.pie(df_result['Retail_CCQTY'], autopct='%1.1f%%', startangle=90)
+#ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-st.pyplot(fig1)
+#st.pyplot(fig1)
 
 # Graf Diff - unders
 st.write('Stadistic metrics')
